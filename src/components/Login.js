@@ -48,7 +48,8 @@ export const Login = () => {
     .post("http://challenge-React.alkemy.org", {email, password})
     .then(res =>{
       Swal.fire('Datos correctos')
-      console.log(res.data);
+      const tokenRecibido = res.data.token;
+      localStorage.setItem("token", tokenRecibido )
     })
   };
 
