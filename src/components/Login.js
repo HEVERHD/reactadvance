@@ -1,11 +1,11 @@
 import axios from "axios";
 import React from "react";
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
 
- 
-
+ const navigate = useNavigate();
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -50,11 +50,14 @@ export const Login = () => {
       Swal.fire('Datos correctos')
       const tokenRecibido = res.data.token;
       localStorage.setItem("token", tokenRecibido )
+      navigate("/listados");
+    
     })
   };
 
   return (
     <>
+
       <h2> Inicia session </h2>
       <form onSubmit={submitHandler}>
         <label>
@@ -68,6 +71,7 @@ export const Login = () => {
         </label>
         <button type="submit">Ingresar</button>
       </form>
+   
     </>
   );
 };
