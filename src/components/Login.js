@@ -50,7 +50,7 @@ export const Login = () => {
       Swal.fire('Datos correctos')
       const tokenRecibido = res.data.token;
       localStorage.setItem("token", tokenRecibido )
-      navigate("/listados");
+      navigate("/listado");
     
     })
   };
