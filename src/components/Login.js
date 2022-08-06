@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 import { Col, Row, Container } from "react-bootstrap";
 
 //styles
@@ -56,32 +56,12 @@ export const Login = () => {
       });
   };
 
+  let token = localStorage.getItem("token");
+
   return (
-    // <div className="container">
-    //                 <div className="tex-center">
-    //                   <h2 className="h4 text-gray-900 mb-4">Inicia session</h2>
-    //                 </div>
-    //                 <form className="user" onSubmit={submitHandler}>
-    //                   <div className="form-group">
-    //                     <input
-    //                       className="form-control form-control-user"
-    //                       type="text"
-    //                       name="email"
-    //                       placeholder="Enter Email Address..."
-    //                     />
-    //                   </div>
-    //                   <div className="form-group">
-    //                     <input
-    //                       className="form-control form-control-user"
-    //                       type="password"
-    //                       name="password"
-    //                       placeholder="Password"
-    //                     />
-    //                   </div>
-    //                   <button className="btn btn-primary btn-user btn-block" type="submit">Ingresar</button>
-    //                   </form>
-    //               </div>
+ 
     <>
+    { token && <Navigate to="/listado"/> }
       <Container>
         <h1 className="shawow-sm tex-success mt-5 p-3 text-center rounded">
           {" "}
