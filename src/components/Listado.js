@@ -7,16 +7,20 @@ export const Listado = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    console.log(token)
-    if (token === null ){
-      navigate("/")
+    console.log(token);
+    if (token === null) {
+      navigate("/");
     }
     // eslint-disable-next-line
   }, []);
 
   return (
-    <div>
-      <h2>Soy el compotente listado</h2>
+    <div className="row">
+      <div className="col-4"> peli1</div>
+      <div className="col-4"> peli2</div>
+      <div className="col-4"> peli3</div>
+      <div className="col-4"> peli4</div>
+      <div className="col-4"> peli5</div>
     </div>
   );
 };

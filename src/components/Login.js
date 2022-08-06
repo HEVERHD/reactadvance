@@ -85,7 +85,7 @@ export const Login = () => {
       <Container>
         <h1 className="shawow-sm tex-success mt-5 p-3 text-center rounded">
           {" "}
-          Admin{" "}
+          Login sign in{" "}
         </h1>
         <Row>
           <Col
