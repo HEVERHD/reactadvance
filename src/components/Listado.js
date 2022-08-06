@@ -26,9 +26,7 @@ export const Listado = () => {
       })
   }, []);
 
-  console.log(movieList);
-
-  let token = localStorage.getItem("token");
+  let token = sessionStorage.getItem("token");
 
   return (
     <>
@@ -45,7 +43,7 @@ export const Listado = () => {
                   <p className="card-text">
                    { oneMovie.overview.substring(0, 100) }...
                   </p>
-                  <Link to="#" className="btn btn-primary">
+                  <Link to={`/detalle?movieID=${oneMovie.id}`} className="btn btn-primary">
                     Go somewhere
                   </Link>
                 </div>
@@ -53,7 +51,6 @@ export const Listado = () => {
             </div>
           );
         })}
-        );
       </div>
     </>
   );

@@ -1,25 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+//components
+import { Buscador } from "./Buscador";
+
 export const Header = () => {
   return (
-    // <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-    //   <div className="container-fluid">
-    //     <Link className="navbar-brand" to="/">
-    //       Home
-    //     </Link>
-    //     <div className="collapse navbar-collapse" id="navbarNavDarkDropdown">
-    //       <ul className="navbar-nav">
-    //         <li className="nav-item dropdown">            
-    //           <Link className="navbar-brand" to="/listado">Listado</Link>
-    //         </li>
-    //         <li>
-    //           <Link className="navbar-brand" to="/">Contacto</Link>
-    //         </li>
-    //       </ul>
-    //     </div>
-    //   </div>
-    // </nav>
     <nav className="navbar navbar-expand-lg bg-light">
   <div className="container-fluid">
     <Link className="navbar-brand" to="/">Home</Link>
@@ -36,6 +22,7 @@ export const Header = () => {
         </li>
       </ul>
     </div>
+    <Buscador / >
   </div>
 </nav>
   );
