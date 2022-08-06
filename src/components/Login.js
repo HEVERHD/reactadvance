@@ -59,9 +59,8 @@ export const Login = () => {
   let token = localStorage.getItem("token");
 
   return (
- 
     <>
-    { token && <Navigate to="/listado"/> }
+      {token && <Navigate to="/listado" />}
       <Container>
         <h1 className="shawow-sm tex-success mt-5 p-3 text-center rounded">
           {" "}
@@ -76,15 +75,13 @@ export const Login = () => {
           >
             <form onSubmit={submitHandler}>
               <div className="mb-3">
-                <label for="exampleInputEmail1" class="form-label">
+                <label htmlFor="exampleInputEmail1" className="form-label">
                   Email address
                 </label>
                 <input
-                type="text"
-                     name="email"
-        
+                  type="text"
+                  name="email"
                   className="form-control"
-                
                   aria-describedby="emailHelp"
                 />
                 <div id="emailHelp" className="form-text">
@@ -92,19 +89,16 @@ export const Login = () => {
                 </div>
               </div>
               <div className="mb-3">
-                <div for="exampleInputPassword1" className="form-label">
+                <div htmlFor="exampleInputPassword1" className="form-label">
                   Password
                 </div>
                 <input
-                type="password"
-                   name="password"
+                  type="password"
+                  name="password"
                   className="form-control"
-                 
                 />
               </div>
-              <div className="mb-3 form-check">
-                  
-              </div>
+              <div className="mb-3 form-check"></div>
               <button type="submit" className="btn btn-primary">
                 Submit
               </button>
