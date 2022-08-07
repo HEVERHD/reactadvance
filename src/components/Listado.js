@@ -31,11 +31,18 @@ export const Listado = () => {
   return (
     <>
       {!token && <Navigate to="/" />}
-
+      <div>
+      <h1 className="text-center my-3">
+       <b>
+       Ultimos extrenos de la semana
+       </b>
+      </h1>
+     </div>
       <div className="row">
         {movieList.map((oneMovie, idx) => {
           return (
             <div className="card-group col-xs-12 col-sm-6 col-md-4 col-lg-3" key={idx}>
+            
               <div className="card my-3">
                 <img src={ `https://image.tmdb.org/t/p/w500/${oneMovie.poster_path}`} className="card-img-top" alt="..." />
                 <div className="card-body">

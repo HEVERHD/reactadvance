@@ -31,7 +31,7 @@ export const Resultado = () => {
 
   return (
     <>
-      <h2>
+      <h2 className="text-center">
         Resultados encontrados : <em>{keyword}</em>
       </h2>
       {movieResult.length === 0 && <h3> No hay Resultados</h3>}
