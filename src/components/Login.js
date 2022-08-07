@@ -11,7 +11,10 @@ export const Login = () => {
   const navigate = useNavigate();
 
   const submitHandler = (e) => {
-    e.preventDefault();
+    
+     e.preventDefault();
+    
+
     const email = e.target.email.value;
     const password = e.target.password.value;
 

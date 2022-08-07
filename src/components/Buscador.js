@@ -4,7 +4,9 @@ import { useNavigate } from 'react-router-dom';
 
 
 
+let token = sessionStorage.getItem("token");
 export const Buscador = () => {
+
 
     const navigate = useNavigate();
 
@@ -12,10 +14,10 @@ export const Buscador = () => {
         e.preventDefault();
         const keyword = e.currentTarget.keyword.value.trim();
 
-        if(Storage.length === 0){
+        if(!token){
             Swal.fire({
                 icon: "error",
-                text: "Debes iniciar session!",
+                text: "Primero debes iniciar session!",
             });
             return;
         }
