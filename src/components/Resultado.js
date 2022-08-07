@@ -55,15 +55,15 @@ export const Resultado = () => {
                   <h5 className="card-title">
                     {oneMovie.title.substring(0, 35)}...
                   </h5>
-                  </div>
-                  <div className=" card-footer text-center my-2">
-                    <Link
-                      to={`/detalle?movieID=${oneMovie.id}`}
-                      className="btn btn-primary"
-                    >
-                      Mas informacion
-                    </Link>
-                  </div>
+                </div>
+                <div className=" card-footer text-center my-2">
+                  <Link
+                    to={`/detalle?movieID=${oneMovie.id}`}
+                    className="btn btn-primary"
+                  >
+                    Mas informacion
+                  </Link>
+                </div>
               </div>
             </div>
           );

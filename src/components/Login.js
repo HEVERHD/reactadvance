@@ -11,9 +11,7 @@ export const Login = () => {
   const navigate = useNavigate();
 
   const submitHandler = (e) => {
-    
-     e.preventDefault();
-    
+    e.preventDefault();
 
     const email = e.target.email.value;
     const password = e.target.password.value;
@@ -49,14 +47,12 @@ export const Login = () => {
       return;
     }
 
-    axios
-      .post("/api/login", { email, password })
-      .then((res) => {
-        Swal.fire("Datos correctos");
-        const tokenRecibido = res.data.token;
-        sessionStorage.setItem("token", tokenRecibido);
-        navigate("/listado");
-      });
+    axios.post("/api/login", { email, password }).then((res) => {
+      Swal.fire("Datos correctos");
+      const tokenRecibido = res.data.token;
+      sessionStorage.setItem("token", tokenRecibido);
+      navigate("/listado");
+    });
   };
 
   let token = sessionStorage.getItem("token");
@@ -65,21 +61,21 @@ export const Login = () => {
     <>
       {token && <Navigate to="/listado" />}
       <Container>
-      <Row>
-      <Col
-      lg={5}
-      md={6}
-      sm={12}
-      className="p-5 m-auto shadow-sm rounded-lg"
-      >
-      <h1 className="shawow-sm tex-success mt-5 p-3 text-center rounded">
-        {" "}
-        Sign in{" "}
-      </h1>
+        <Row>
+          <Col
+            lg={5}
+            md={6}
+            sm={12}
+            className="p-5 m-auto shadow-sm rounded-lg"
+          >
+            <h1 className="shawow-sm tex-success mt-5 p-3 text-center rounded">
+              {" "}
+              Iniciar session{" "}
+            </h1>
             <form onSubmit={submitHandler}>
               <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="form-label">
-                  Email address
+                  Direccion de correo
                 </label>
                 <input
                   type="text"
@@ -93,7 +89,7 @@ export const Login = () => {
               </div>
               <div className="mb-3">
                 <div htmlFor="exampleInputPassword1" className="form-label">
-                  Password
+                  Contraña
                 </div>
                 <input
                   type="password"
