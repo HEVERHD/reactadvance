@@ -11,7 +11,8 @@
     "react-scripts": "5.0.1",
     "sweetalert": "^2.1.2",
     "sweetalert2": "^11.4.24",
-    "sweetalert2-react": "^0.8.3"
+    "sweetalert2-react": "^0.8.3",
+    "vercel": "^27.3.7"
   },
   "scripts": {
     "start": "react-scripts start",

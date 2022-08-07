@@ -50,7 +50,7 @@ export const Login = () => {
     }
 
     axios
-      .post("https://challenge-React.alkemy.org", { email, password })
+      .post("/api/login", { email, password })
       .then((res) => {
         Swal.fire("Datos correctos");
         const tokenRecibido = res.data.token;

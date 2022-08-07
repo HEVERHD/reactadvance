@@ -4,13 +4,13 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-let token = sessionStorage.getItem("token");
 export const Buscador = () => {
-
-
+    
+    
     const navigate = useNavigate();
-
+    
     const submitHandler = e =>{
+        let token = sessionStorage.getItem("token");
         e.preventDefault();
         const keyword = e.currentTarget.keyword.value.trim();
 
