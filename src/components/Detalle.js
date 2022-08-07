@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 import axios from "axios";
 
 export const Detalle = () => {
@@ -24,12 +24,16 @@ export const Detalle = () => {
 
   return (
     <>
+    
       {!token && <Navigate to="/" />}
-     {!movie && <p> Cargando ....</p>}
+      {!movie && <div className="spinner-border" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </div>}
       {movie && (
         <>
         <h2>Titulo : { movie.title }</h2>
         <h6>ID : { movie.id }</h6>
+        <Link className="btn btn-primary" to="/listado" role="button">Regresar</Link>
           <div className="row">
             <div className="col-4">
             <img src={ `https://image.tmdb.org/t/p/w500/${movie.poster_path}`} className="img-fluid" alt="movieDetails" />

@@ -62,17 +62,17 @@ export const Login = () => {
     <>
       {token && <Navigate to="/listado" />}
       <Container>
-        <h1 className="shawow-sm tex-success mt-5 p-3 text-center rounded">
-          {" "}
-          Login sign in{" "}
-        </h1>
-        <Row>
-          <Col
-            lg={5}
-            md={6}
-            sm={12}
-            className="p-5 m-auto shadow-sm rounded-lg"
-          >
+      <Row>
+      <Col
+      lg={5}
+      md={6}
+      sm={12}
+      className="p-5 m-auto shadow-sm rounded-lg"
+      >
+      <h1 className="shawow-sm tex-success mt-5 p-3 text-center rounded">
+        {" "}
+        Sign in{" "}
+      </h1>
             <form onSubmit={submitHandler}>
               <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="form-label">

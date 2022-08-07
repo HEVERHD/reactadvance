@@ -44,7 +44,7 @@ export const Listado = () => {
                    { oneMovie.overview.substring(0, 100) }...
                   </p>
                   <Link to={`/detalle?movieID=${oneMovie.id}`} className="btn btn-primary">
-                    Go somewhere
+                  Mas informacion
                   </Link>
                 </div>
               </div>
