@@ -35,7 +35,7 @@ export const Listado = () => {
       <div className="row">
         {movieList.map((oneMovie, idx) => {
           return (
-            <div className="col-3" key={idx}>
+            <div className="card-group col-xs-12 col-sm-6 col-md-4 col-lg-3" key={idx}>
               <div className="card my-3">
                 <img src={ `https://image.tmdb.org/t/p/w500/${oneMovie.poster_path}`} className="card-img-top" alt="..." />
                 <div className="card-body">
@@ -43,9 +43,12 @@ export const Listado = () => {
                   <p className="card-text">
                    { oneMovie.overview.substring(0, 100) }...
                   </p>
-                  <Link to={`/detalle?movieID=${oneMovie.id}`} className="btn btn-primary">
-                  Mas informacion
-                  </Link>
+                 
+                </div>
+                <div className="card-footer text-center my-2" >
+                <Link to={`/detalle?movieID=${oneMovie.id}`} className="btn btn-primary">
+                Mas informacion
+            </Link>
                 </div>
               </div>
             </div>
