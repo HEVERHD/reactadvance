@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-
 export const Buscador = () => {
 
     const navigate = useNavigate();
@@ -12,10 +11,18 @@ export const Buscador = () => {
     const submitHandler = e =>{
         e.preventDefault();
         const keyword = e.currentTarget.keyword.value.trim();
-        if(keyword.length ===0){
 
+        if(Storage.length === 0){
             Swal.fire({
-              
+                icon: "error",
+                text: "Debes iniciar session!",
+            });
+            return;
+        }
+
+
+        if(keyword.length ===0){
+            Swal.fire({            
                 title: "Por favor escribe una palabra clave",
                 text: "Ejemplo Minions, cars " });
         } else if (keyword.length < 4){
@@ -28,7 +35,9 @@ export const Buscador = () => {
         }
     }
 
+  
   return (
+   
     <form onSubmit={submitHandler} className="d-flex" role="search">
         <input className="form-control me-2" type="text" name='keyword' placeholder="Busca tu pelicula" aria-label="Search" />
         <button className="btn btn-outline-success" type="submit">Encontrar..</button>
