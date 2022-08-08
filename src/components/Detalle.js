@@ -23,7 +23,7 @@ export const Detalle = () => {
   }, [movieID]);
 
   return (
-    <>
+    <div className="container">
       {!token && <Navigate to="/" />}
 
       {!movie && (
@@ -32,17 +32,18 @@ export const Detalle = () => {
         </div>
       )}
       {movie && (
-        <>
-          <h2>Titulo : {movie.title}</h2>
-          <h6>ID : {movie.id}</h6>
-          <Link className="btn btn-primary" to="/listado" role="button">
-            Regresar
-          </Link>
+        <div className=" container mt-5">
+          <div>
+            <h2 className="text-center">
+              Titulo : <b>{movie.title}</b>{" "}
+            </h2>
+            <h6 className="text-center">ID : {movie.id}</h6>
+          </div>
           <div className="row">
             <div className="col-4">
               <img
                 src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                className="img-fluid"
+                className="img-fluid img-thumbnail"
                 alt="movieDetails"
               />
             </div>
@@ -56,11 +57,16 @@ export const Detalle = () => {
                 {movie.genres.map((oneGenre) => (
                   <li key={oneGenre.id}> {oneGenre.name} </li>
                 ))}
+                <div className="row">
+                  <Link className="btn btn-primary" to="/listado" role="button">
+                    Regresar
+                  </Link>
+                </div>
               </ul>
             </div>
           </div>
-        </>
+        </div>
       )}
-    </>
+    </div>
   );
 };
