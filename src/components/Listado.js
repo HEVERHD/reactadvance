@@ -45,11 +45,11 @@ export const Listado = () => {
             >
               <div className="card my-3">
                 <h5 className="card-title text-center">
-                  <b>{oneMovie.title.substring(0, 35)}...</b>
+                  <b>{oneMovie.title.substring(0, 25)}...</b>
                 </h5>
                 <img
                   src={`https://image.tmdb.org/t/p/w500/${oneMovie.poster_path}`}
-                  className="rounded float-left card-img-top img-thumbnail img-fluid"
+                  className=" img-rounded rounded float-left card-img-top img-thumbnail img-fluid"
                   alt="..."
                 />
                 <div className="card-body">
