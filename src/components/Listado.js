@@ -4,8 +4,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-export const Listado = () => {
+export const Listado = (props) => {
   const [movieList, setMovieList] = useState([]);
+
+  console.log(props);
 
   useEffect(() => {
     const enPoint =
@@ -52,6 +54,13 @@ export const Listado = () => {
                   className=" img-rounded rounded float-left card-img-top img-thumbnail img-fluid"
                   alt="..."
                 />
+                <button
+                  data-movie-id={oneMovie.id}
+                  onClick={props.addFavorite}
+                  className="favorite-btn"
+                >
+                  🖤
+                </button>
                 <div className="card-body">
                   <p className="card-text">
                     {oneMovie.overview.substring(0, 100)}...
