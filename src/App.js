@@ -15,9 +15,6 @@ import "./css/bootstrap.min.css";
 import "./css/app.css";
 
 function App() {
-  const addOrRemoveFromFavs = () => {
-    console.log("ok funciono");
-  };
   const favMovies = localStorage.getItem("favs");
 
   let tempMovieList;
@@ -30,7 +27,7 @@ function App() {
   console.log(tempMovieList);
 
   // capturar elementos del DOM
-  const addFavorite = (e) => {
+  const addOrRemoveFavorite = (e) => {
     const btn = e.currentTarget;
     const parent = btn.parentElement;
     const title = parent.querySelector("h5").innerText;
@@ -66,12 +63,12 @@ function App() {
         <Route exact path="/" element={<Login />} />
         <Route
           path="/listado"
-          exact
-          element={<Listado addOrRemoveFromFavs={addOrRemoveFromFavs} />}
+          element={<Listado addOrRemoveFavorite={addOrRemoveFavorite} />}
         />
+
         <Route exact={true} path="/detalle" element={<Detalle />} />
-        <Route exact={true} path="/resultado" element={<Resultado />} />
         <Route exact={true} path="/favoritos" element={<Favoritos />} />
+        <Route exact={true} path="/resultado" element={<Resultado />} />
       </Routes>
 
       <Footer />

@@ -56,7 +56,7 @@ export const Listado = (props) => {
                 />
                 <button
                   data-movie-id={oneMovie.id}
-                  onClick={props.addFavorite}
+                  onClick={props.addOrRemoveFavorite}
                   className="favorite-btn"
                 >
                   🖤
