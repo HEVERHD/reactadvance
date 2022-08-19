@@ -9,6 +9,7 @@ import { Footer } from "./components/Footer";
 import { Detalle } from "./components/Detalle";
 import { Resultado } from "./components/Resultado";
 import { Favoritos } from "./components/Favoritos";
+import { Contacto } from "./components/Contacto";
 
 //Styles
 // eslint-disable-next-line
@@ -92,6 +93,7 @@ function App() {
           }
         />
         <Route exact={true} path="/resultado" element={<Resultado />} />
+        <Route exact={true} path="/contacto" element={<Contacto />} />
       </Routes>
 
       <Footer />

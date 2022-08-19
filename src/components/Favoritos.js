@@ -1,22 +1,20 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { ButtonList } from "./ButtonList";
 
 export const Favoritos = (props) => {
-  //   const [favorite, setFavorite] = useState([]);
-
-  //   useEffect(() => {
-  //     const favsInLocal = localStorage.getItem("favs");
-  //     console.log(favsInLocal);
-  //     if (favsInLocal != null) {
-  //       const favs = JSON.parse(favsInLocal);
-  //       console.log(favs);
-  //       setFavorite(favs);
-  //     }
-  //   }, []);
+  let token = sessionStorage.getItem("token");
   return (
     <>
+      {!token && <Navigate to="/" />}
       <div>
         <h1 className="text-center my-3">
-          <b> Favoritos </b>
+          {!props.favorite.length > 0
+            ? "No tienes favoritos"
+            : "Tus favoritos son:"}
+          {props.favorite.length > 0 && (
+            <span className="text-danger"> {props.favorite.length}</span>
+          )}
+          {props.favorite.length > 0 ? "" : <ButtonList />}
         </h1>
       </div>
       <div className="row">

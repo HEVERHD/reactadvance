@@ -30,9 +30,9 @@ export const Header = (props) => {
               Favoritos
             </Link>
             <span className=" nav-link text-danger">
-              ({props.favorite.length})
+              {props.favorite.length > 0 ? `${props.favorite.length}` : ""}
             </span>
-            <Link className="nav-link" to="#action2">
+            <Link className="nav-link" to="/contacto">
               Contacto
             </Link>
           </Nav>
