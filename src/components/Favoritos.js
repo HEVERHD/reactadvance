@@ -1,18 +1,17 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export const Favoritos = () => {
-  const [favorite, setFavorite] = useState([]);
+export const Favoritos = (props) => {
+  //   const [favorite, setFavorite] = useState([]);
 
-  useEffect(() => {
-    const favsInLocal = localStorage.getItem("favs");
-    console.log(favsInLocal);
-    if (favsInLocal != null) {
-      const favs = JSON.parse(favsInLocal);
-      console.log(favs);
-      setFavorite(favs);
-    }
-  }, []);
+  //   useEffect(() => {
+  //     const favsInLocal = localStorage.getItem("favs");
+  //     console.log(favsInLocal);
+  //     if (favsInLocal != null) {
+  //       const favs = JSON.parse(favsInLocal);
+  //       console.log(favs);
+  //       setFavorite(favs);
+  //     }
+  //   }, []);
   return (
     <>
       <div>
@@ -21,7 +20,7 @@ export const Favoritos = () => {
         </h1>
       </div>
       <div className="row">
-        {favorite.map((oneMovie, idx) => {
+        {props.favorite.map((oneMovie, idx) => {
           return (
             <div
               className="card-group col-xs-12 col-sm-6 col-md-4 col-lg-3"
@@ -36,13 +35,13 @@ export const Favoritos = () => {
                   className=" img-rounded rounded float-left card-img-top img-thumbnail img-fluid"
                   alt="..."
                 />
-                {/* <button
+                <button
                   data-movie-id={oneMovie.id}
                   onClick={props.addOrRemoveFavorite}
                   className="favorite-btn"
                 >
                   🖤
-                </button> */}
+                </button>
                 <div className="card-body">
                   <p className="card-text">
                     {oneMovie.overview.substring(0, 100)}...

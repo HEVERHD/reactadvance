@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 // Components
 import { Listado } from "./components/Listado";
@@ -15,6 +16,17 @@ import "./css/bootstrap.min.css";
 import "./css/app.css";
 
 function App() {
+  const [favorite, setFavorite] = useState([]);
+
+  useEffect(() => {
+    const favsInLocal = localStorage.getItem("favs");
+    console.log(favsInLocal);
+    if (favsInLocal != null) {
+      const favs = JSON.parse(favsInLocal);
+      setFavorite(favs);
+    }
+  }, []);
+
   const favMovies = localStorage.getItem("favs");
 
   let tempMovieList;
@@ -45,19 +57,21 @@ function App() {
     if (movieArray === undefined) {
       tempMovieList.push(movieData);
       localStorage.setItem("favs", JSON.stringify(tempMovieList));
+      setFavorite(tempMovieList);
       console.log("Agregado a favoritos");
     } else {
       let movieLeft = tempMovieList.filter((oneMovie) => {
         return oneMovie.id !== movieData.id;
       });
       localStorage.setItem("favs", JSON.stringify(movieLeft));
+      setFavorite(movieLeft);
       console.log("Eliminado de favoritos");
     }
   };
 
   return (
     <div className="container">
-      <Header />
+      <Header favorite={favorite} />
 
       <Routes>
         <Route exact path="/" element={<Login />} />
@@ -67,7 +81,16 @@ function App() {
         />
 
         <Route exact={true} path="/detalle" element={<Detalle />} />
-        <Route exact={true} path="/favoritos" element={<Favoritos />} />
+        <Route
+          exact={true}
+          path="/favoritos"
+          element={
+            <Favoritos
+              favorite={favorite}
+              addOrRemoveFavorite={addOrRemoveFavorite}
+            />
+          }
+        />
         <Route exact={true} path="/resultado" element={<Resultado />} />
       </Routes>
 

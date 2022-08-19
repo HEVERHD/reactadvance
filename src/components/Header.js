@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
-export const Header = () => {
+export const Header = (props) => {
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
@@ -29,6 +29,9 @@ export const Header = () => {
             <Link className="nav-link" to="/favoritos">
               Favoritos
             </Link>
+            <span className=" nav-link text-danger">
+              ({props.favorite.length})
+            </span>
             <Link className="nav-link" to="#action2">
               Contacto
             </Link>
