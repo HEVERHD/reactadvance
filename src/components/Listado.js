@@ -35,7 +35,7 @@ export const Listado = (props) => {
       {!token && <Navigate to="/" />}
       <div>
         <h1 className="text-center my-3">
-          <b>Ultimos extrenos de la semana</b>
+          <b>Últimos estrenos del mes</b>
         </h1>
       </div>
       <div className="row">

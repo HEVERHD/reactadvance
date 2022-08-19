@@ -7,6 +7,7 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { Detalle } from "./components/Detalle";
 import { Resultado } from "./components/Resultado";
+import { Favoritos } from "./components/Favoritos";
 
 //Styles
 // eslint-disable-next-line
@@ -14,6 +15,9 @@ import "./css/bootstrap.min.css";
 import "./css/app.css";
 
 function App() {
+  const addOrRemoveFromFavs = () => {
+    console.log("ok funciono");
+  };
   const favMovies = localStorage.getItem("favs");
 
   let tempMovieList;
@@ -61,12 +65,13 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Login />} />
         <Route
-          exact
           path="/listado"
-          element={<Listado addFavorite={addFavorite} />}
+          exact
+          element={<Listado addOrRemoveFromFavs={addOrRemoveFromFavs} />}
         />
-        <Route exact path="/detalle" element={<Detalle />} />
-        <Route exact path="/resultado" element={<Resultado />} />
+        <Route exact={true} path="/detalle" element={<Detalle />} />
+        <Route exact={true} path="/resultado" element={<Resultado />} />
+        <Route exact={true} path="/favoritos" element={<Favoritos />} />
       </Routes>
 
       <Footer />
