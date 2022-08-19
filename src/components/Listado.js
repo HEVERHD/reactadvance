@@ -7,8 +7,6 @@ import Swal from "sweetalert2";
 export const Listado = (props) => {
   const [movieList, setMovieList] = useState([]);
 
-  console.log(props);
-
   useEffect(() => {
     const enPoint =
       "https://api.themoviedb.org/3/discover/movie?api_key=eb42fd1735381027e43257fb869cd9ad&language=es-ES&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate";

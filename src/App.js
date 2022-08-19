@@ -21,7 +21,6 @@ function App() {
 
   useEffect(() => {
     const favsInLocal = localStorage.getItem("favs");
-    console.log(favsInLocal);
     if (favsInLocal != null) {
       const favs = JSON.parse(favsInLocal);
       setFavorite(favs);
@@ -37,7 +36,6 @@ function App() {
   } else {
     tempMovieList = JSON.parse(favMovies);
   }
-  console.log(tempMovieList);
 
   // capturar elementos del DOM
   const addOrRemoveFavorite = (e) => {
@@ -59,14 +57,12 @@ function App() {
       tempMovieList.push(movieData);
       localStorage.setItem("favs", JSON.stringify(tempMovieList));
       setFavorite(tempMovieList);
-      console.log("Agregado a favoritos");
     } else {
       let movieLeft = tempMovieList.filter((oneMovie) => {
         return oneMovie.id !== movieData.id;
       });
       localStorage.setItem("favs", JSON.stringify(movieLeft));
       setFavorite(movieLeft);
-      console.log("Eliminado de favoritos");
     }
   };
 
