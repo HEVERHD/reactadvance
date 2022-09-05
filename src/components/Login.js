@@ -1,7 +1,7 @@
 import axios from "axios";
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Swal from "sweetalert2";
-import { startGoogleSignIn } from "../store/auth";
+import { startGoogleSignIn, startLoginWithEmailPassword } from "../store/auth";
 import { useNavigate, Navigate } from "react-router-dom";
 import { Col, Row, Container } from "react-bootstrap";
 
@@ -59,14 +59,13 @@ export const Login = () => {
   //   });
   // };
 
-  const isAuthenticating = useMemo(() => status === "checking", [status]);
-
-  const dispatch = useDispatch();
+  const authenticated = useMemo(() => status === "authenticated", [status]);
 
   const onSubmit = (event) => {
     event.preventDefault();
   };
   // console.log({ email, password })
+  const dispatch = useDispatch();
 
   const onGoogleSignIn = () => {
     console.log("onGoogleSignIn");
@@ -75,7 +74,7 @@ export const Login = () => {
 
   return (
     <>
-      {status && <Navigate to="/listado" />}
+      {authenticated && <Navigate to="/listado" />}
       <Container>
         <Row>
           <Col

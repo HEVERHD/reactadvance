@@ -3,8 +3,10 @@ import { Link, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useSelector } from "react-redux";
 
 export const Listado = (props) => {
+  const { status, errorMessage } = useSelector((state) => state.auth);
   const [movieList, setMovieList] = useState([]);
 
   useEffect(() => {
@@ -26,11 +28,9 @@ export const Listado = (props) => {
       });
   }, []);
 
-  let token = sessionStorage.getItem("token");
-
   return (
     <>
-      {!token && <Navigate to="/" />}
+      {/* {status && <Navigate to="/" />} */}
       <div>
         <h1 className="text-center my-3">
           <b>Últimos estrenos del mes</b>

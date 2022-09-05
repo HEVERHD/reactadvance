@@ -22,7 +22,6 @@ export const startGoogleSignIn = () => {
     dispatch(login(result));
   };
 };
-
 export const startCreatingUserWithEmailPassword = ({
   email,
   password,
