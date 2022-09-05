@@ -1,61 +1,74 @@
 import axios from "axios";
 import React from "react";
 import Swal from "sweetalert2";
+import { startGoogleSignIn } from "../store/auth";
 import { useNavigate, Navigate } from "react-router-dom";
 import { Col, Row, Container } from "react-bootstrap";
 
 //styles
 import "../css/bootstrap.min.css";
+import { useDispatch } from "react-redux";
 
 export const Login = () => {
   const navigate = useNavigate();
 
-  const submitHandler = (e) => {
-    e.preventDefault();
+  // const submitHandler = (e) => {
+  //   e.preventDefault();
 
-    const email = e.target.email.value;
-    const password = e.target.password.value;
+  //   const email = e.target.email.value;
+  //   const password = e.target.password.value;
 
-    // eslint-disable-next-line
-    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  //   // eslint-disable-next-line
+  //   const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-    if (email === "" || password === "") {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Por favor los campos no deben estar vacios!",
-        footer: '<a href="">Why do I have this issue?</a>',
-      });
-      return;
-    }
+  //   if (email === "" || password === "") {
+  //     Swal.fire({
+  //       icon: "error",
+  //       title: "Oops...",
+  //       text: "Por favor los campos no deben estar vacios!",
+  //       footer: '<a href="">Why do I have this issue?</a>',
+  //     });
+  //     return;
+  //   }
 
-    if (email !== "" && !mailformat.test(email)) {
-      Swal.fire({
-        icon: "error",
-        title: "Debe ser un correo valido",
-      });
-      return;
-    }
+  //   if (email !== "" && !mailformat.test(email)) {
+  //     Swal.fire({
+  //       icon: "error",
+  //       title: "Debe ser un correo valido",
+  //     });
+  //     return;
+  //   }
 
-    if (email !== "challenge@alkemy.org" || password !== "react") {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Las credenciales deben ser validas!",
-        footer: '<a href="">Revisa nuevamente</a>',
-      });
-      return;
-    }
+  //   if (email !== "challenge@alkemy.org" || password !== "react") {
+  //     Swal.fire({
+  //       icon: "error",
+  //       title: "Oops...",
+  //       text: "Las credenciales deben ser validas!",
+  //       footer: '<a href="">Revisa nuevamente</a>',
+  //     });
+  //     return;
+  //   }
 
-    axios.post("/api/login", { email, password }).then((res) => {
-      Swal.fire("Datos correctos");
-      const tokenRecibido = res.data.token;
-      sessionStorage.setItem("token", tokenRecibido);
-      navigate("/listado");
-    });
-  };
+  //   axios.post("/api/login", { email, password }).then((res) => {
+  //     Swal.fire("Datos correctos");
+  //     const tokenRecibido = res.data.token;
+  //     sessionStorage.setItem("token", tokenRecibido);
+  //     navigate("/listado");
+  //   });
+  // };
 
   let token = sessionStorage.getItem("token");
+  const dispatch = useDispatch();
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+  };
+  // console.log({ email, password })
+
+  const onGoogleSignIn = () => {
+    console.log("onGoogleSignIn");
+    dispatch(startGoogleSignIn());
+  };
 
   return (
     <>
@@ -72,7 +85,7 @@ export const Login = () => {
               {" "}
               Iniciar session{" "}
             </h1>
-            <form onSubmit={submitHandler}>
+            <form onSubmit={onSubmit}>
               <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="form-label">
                   Direccion de correo
@@ -97,10 +110,15 @@ export const Login = () => {
                   className="form-control"
                 />
               </div>
-              <div className="mb-3 form-check"></div>
-              <button type="submit" className="btn btn-primary">
-                Submit
-              </button>
+              <div className="d-flex justify-content-center">
+                <button
+                  onClick={onGoogleSignIn}
+                  // type="submit"
+                  className="btn btn-primary d-flex justify-content-center"
+                >
+                  Inicia sesión con Google
+                </button>
+              </div>
             </form>
           </Col>
         </Row>
