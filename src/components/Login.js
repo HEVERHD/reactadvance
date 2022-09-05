@@ -1,5 +1,5 @@
 import axios from "axios";
-import React from "react";
+import React, { useMemo } from "react";
 import Swal from "sweetalert2";
 import { startGoogleSignIn } from "../store/auth";
 import { useNavigate, Navigate } from "react-router-dom";
@@ -7,9 +7,11 @@ import { Col, Row, Container } from "react-bootstrap";
 
 //styles
 import "../css/bootstrap.min.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export const Login = () => {
+  const { status, errorMessage } = useSelector((state) => state.auth);
+
   const navigate = useNavigate();
 
   // const submitHandler = (e) => {
@@ -57,7 +59,8 @@ export const Login = () => {
   //   });
   // };
 
-  let token = sessionStorage.getItem("token");
+  const isAuthenticating = useMemo(() => status === "checking", [status]);
+
   const dispatch = useDispatch();
 
   const onSubmit = (event) => {
@@ -72,7 +75,7 @@ export const Login = () => {
 
   return (
     <>
-      {token && <Navigate to="/listado" />}
+      {status && <Navigate to="/listado" />}
       <Container>
         <Row>
           <Col
