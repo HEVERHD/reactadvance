@@ -2,10 +2,12 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Navigate, Link } from "react-router-dom";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 export const Detalle = () => {
   const [movie, setMovie] = useState(null);
-  let token = sessionStorage.getItem("token");
+  const { status } = useSelector((state) => state.auth);
+  // let token = sessionStorage.getItem("token");
   let query = new URLSearchParams(window.location.search);
   let movieID = query.get("movieID");
 
@@ -24,7 +26,7 @@ export const Detalle = () => {
 
   return (
     <div className="container">
-      {!token && <Navigate to="/" />}
+      {!status && <Navigate to="/" />}
 
       {!movie && (
         <div className="spinner-border" role="status">

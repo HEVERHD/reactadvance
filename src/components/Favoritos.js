@@ -1,15 +1,17 @@
+import { useSelector } from "react-redux";
 import { Link, Navigate } from "react-router-dom";
 import { ButtonList } from "./ButtonList";
 
 export const Favoritos = (props) => {
-  let token = sessionStorage.getItem("token");
+  const { status, displayName } = useSelector((state) => state.auth);
+
   return (
     <>
-      {!token && <Navigate to="/" />}
+      {!status && <Navigate to="/" />}
       <div>
         <h1 className="text-center my-3">
           {!props.favorite.length > 0
-            ? "No tienes favoritos"
+            ? `!!ups ${displayName.substring(0, 7)}"No tienes favoritos"`
             : "Tus favoritos son:"}
           {props.favorite.length > 0 && (
             <span className="text-danger"> {props.favorite.length}</span>

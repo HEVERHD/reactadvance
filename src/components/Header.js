@@ -7,8 +7,10 @@ import { Buscador } from "./Buscador";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { useSelector } from "react-redux";
 
 export const Header = (props) => {
+  const { displayName } = useSelector((state) => state.auth);
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
@@ -32,8 +34,8 @@ export const Header = (props) => {
             <span className=" nav-link text-danger">
               {props.favorite.length > 0 ? `${props.favorite.length}` : ""}
             </span>
-            <Link className="nav-link" to="/contacto">
-              Contacto
+            <Link className="nav-link" to="">
+              <b>{displayName}</b>
             </Link>
           </Nav>
           <Buscador />
