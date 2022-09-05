@@ -31,6 +31,7 @@ export const Listado = (props) => {
 
   return (
     <>
+      {}
       <div>
         <h1 className="text-center my-3">
           <b>Últimos estrenos del mes</b>

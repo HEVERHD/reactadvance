@@ -15,10 +15,11 @@ import { Contacto } from "./components/Contacto";
 // eslint-disable-next-line
 import "./css/bootstrap.min.css";
 import "./css/app.css";
+import { CheckingAuth } from "./components/CheckingAuth";
+import { useCheckAuth } from "./hooks/useCheckAuth";
 
 function App() {
   const [favorite, setFavorite] = useState([]);
-
   useEffect(() => {
     const favsInLocal = localStorage.getItem("favs");
     if (favsInLocal != null) {
@@ -26,6 +27,11 @@ function App() {
       setFavorite(favs);
     }
   }, []);
+  const status = useCheckAuth();
+
+  if (status === "checking") {
+    return <Login />;
+  }
 
   const favMovies = localStorage.getItem("favs");
 
