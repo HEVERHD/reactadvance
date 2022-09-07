@@ -96,7 +96,7 @@ export const Login = () => {
               </div>
               <div className="mb-3">
                 <div htmlFor="exampleInputPassword1" className="form-label">
-                  Contraña
+                  Contraseña
                 </div>
                 <input
                   type="password"
