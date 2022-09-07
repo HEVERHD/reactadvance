@@ -5,6 +5,6 @@ export default async function handler(request, response) {
     email: "challenge@alkemy.org",
     password: "react",
   });
-  
+
   return response.status(200).json({ data: res.data });
 }

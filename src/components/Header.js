@@ -7,20 +7,27 @@ import { Buscador } from "./Buscador";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { startLogout } from "../store/auth";
 
 export const Header = (props) => {
   const { displayName } = useSelector((state) => state.auth);
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
   const onLogout = () => {
-    navigate("/login", {
-      replace: true,
-    });
+    dispatch(startLogout());
   };
+  // const onLogout = () => {
+  //   navigate("/login", {
+  //     replace: true,
+  //   });
+  // };
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
-        <Link className="navbar-brand" to="/">
+        <Link className="navbar-brand" to="/listado">
           {" "}
           PELIS HD{" "}
         </Link>
