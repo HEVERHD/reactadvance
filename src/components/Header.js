@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 //components
 import { Buscador } from "./Buscador";
@@ -11,6 +11,12 @@ import { useSelector } from "react-redux";
 
 export const Header = (props) => {
   const { displayName } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
+  const onLogout = () => {
+    navigate("/login", {
+      replace: true,
+    });
+  };
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
@@ -39,6 +45,9 @@ export const Header = (props) => {
             </Link>
           </Nav>
           <Buscador />
+          <NavLink className="nav-item nav-link" to="/login" onClick={onLogout}>
+            Logout
+          </NavLink>
         </Navbar.Collapse>
       </Container>
     </Navbar>

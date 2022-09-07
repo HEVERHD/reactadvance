@@ -1,24 +1,14 @@
+import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { Detalle } from "../components/Detalle";
+import { Favoritos } from "../components/Favoritos";
+import { Footer } from "../components/Footer";
+import { Header } from "../components/Header";
+import { Listado } from "../components/Listado";
+import { Login } from "../components/Login";
+import { useCheckAuth } from "../hooks/useCheckAuth";
 
-// Components
-import { Listado } from "./components/Listado";
-import { Login } from "./components/Login";
-import { Header } from "./components/Header";
-import { Footer } from "./components/Footer";
-import { Detalle } from "./components/Detalle";
-import { Resultado } from "./components/Resultado";
-import { Favoritos } from "./components/Favoritos";
-import { Contacto } from "./components/Contacto";
-
-//Styles
-// eslint-disable-next-line
-import "./css/bootstrap.min.css";
-import "./css/app.css";
-import { CheckingAuth } from "./components/CheckingAuth";
-import { useCheckAuth } from "./hooks/useCheckAuth";
-
-function App() {
+export const ListadoRoutes = () => {
   const [favorite, setFavorite] = useState([]);
   useEffect(() => {
     const favsInLocal = localStorage.getItem("favs");
@@ -73,34 +63,28 @@ function App() {
   };
 
   return (
-    <div className="container">
+    <>
       <Header favorite={favorite} />
-
-      <Routes>
-        <Route exact path="/" element={<Login />} />
-        <Route
-          path="/listado"
-          element={<Listado addOrRemoveFavorite={addOrRemoveFavorite} />}
-        />
-
-        <Route exact={true} path="/detalle" element={<Detalle />} />
-        <Route
-          exact={true}
-          path="/favoritos"
-          element={
-            <Favoritos
-              favorite={favorite}
-              addOrRemoveFavorite={addOrRemoveFavorite}
-            />
-          }
-        />
-        <Route exact={true} path="/resultado" element={<Resultado />} />
-        <Route exact={true} path="/contacto" element={<Contacto />} />
-      </Routes>
-
+      <div className="container">
+        <Routes>
+          <Route
+            path="listado"
+            element={<Listado addOrRemoveFavorite={addOrRemoveFavorite} />}
+          />
+          <Route exact={true} path="/detalle" element={<Detalle />} />
+          <Route
+            exact={true}
+            path="/favoritos"
+            element={
+              <Favoritos
+                favorite={favorite}
+                addOrRemoveFavorite={addOrRemoveFavorite}
+              />
+            }
+          />
+        </Routes>
+      </div>
       <Footer />
-    </div>
+    </>
   );
-}
-
-export default App;
+};
