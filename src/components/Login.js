@@ -114,7 +114,6 @@ export const Login = () => {
 
                 <button
                   onClick={onGoogleSignIn}
-                  // type="submit"
                   className="btn btn-primary d-flex my-3 justify-content-center "
                 >
                   <svg
