@@ -51,18 +51,19 @@ export const Login = () => {
       return;
     }
 
-    axios.post("/api/login", { email, password }).then((res) => {
-      Swal.fire("Datos correctos");
-      const tokenRecibido = res.data.token;
-      sessionStorage.setItem("token", tokenRecibido);
-      navigate("/listado");
-    });
+    // axios.post("/api/login", { email, password }).then((res) => {
+    //   Swal.fire("Datos correctos");
+    //   const tokenRecibido = res.data.token;
+    //   sessionStorage.setItem("token", tokenRecibido);
+    //   navigate("/listado");
+    // });
   };
 
   const dispatch = useDispatch();
 
   const onGoogleSignIn = () => {
     dispatch(startGoogleSignIn());
+    Swal.fire("Datos correctos");
   };
 
   return (
