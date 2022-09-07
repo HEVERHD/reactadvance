@@ -17,46 +17,46 @@ export const Login = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    // const email = e.target.email.value;
-    // const password = e.target.password.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
 
-    // // eslint-disable-next-line
-    // const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    // eslint-disable-next-line
+    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-    // if (email === "" || password === "") {
-    //   Swal.fire({
-    //     icon: "error",
-    //     title: "Oops...",
-    //     text: "Por favor los campos no deben estar vacios!",
-    //     footer: '<a href="">Why do I have this issue?</a>',
-    //   });
-    //   return;
-    // }
+    if (email === "" || password === "") {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Por favor los campos no deben estar vacios!",
+        footer: '<a href="">Why do I have this issue?</a>',
+      });
+      return;
+    }
 
-    // if (email !== "" && !mailformat.test(email)) {
-    //   Swal.fire({
-    //     icon: "error",
-    //     title: "Debe ser un correo valido",
-    //   });
-    //   return;
-    // }
+    if (email !== "" && !mailformat.test(email)) {
+      Swal.fire({
+        icon: "error",
+        title: "Debe ser un correo valido",
+      });
+      return;
+    }
 
-    // if (email !== "challenge@alkemy.org" || password !== "react") {
-    //   Swal.fire({
-    //     icon: "error",
-    //     title: "Oops...",
-    //     text: "Las credenciales deben ser validas!",
-    //     footer: '<a href="">Revisa nuevamente</a>',
-    //   });
-    //   return;
-    // }
+    if (email !== "challenge@alkemy.org" || password !== "react") {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Las credenciales deben ser validas!",
+        footer: '<a href="">Revisa nuevamente</a>',
+      });
+      return;
+    }
 
-    // axios.post("/api/login", { email, password }).then((res) => {
-    //   Swal.fire("Datos correctos");
-    //   const tokenRecibido = res.data.token;
-    //   sessionStorage.setItem("token", tokenRecibido);
-    //   navigate("/listado");
-    // });
+    axios.post("/api/login", { email, password }).then((res) => {
+      Swal.fire("Datos correctos");
+      const tokenRecibido = res.data.token;
+      sessionStorage.setItem("token", tokenRecibido);
+      navigate("/listado");
+    });
   };
 
   const dispatch = useDispatch();

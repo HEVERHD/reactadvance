@@ -6,6 +6,7 @@ import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { Listado } from "../components/Listado";
 import { Login } from "../components/Login";
+import { Resultado } from "../components/Resultado";
 import { useCheckAuth } from "../hooks/useCheckAuth";
 
 export const ListadoRoutes = () => {
@@ -72,6 +73,7 @@ export const ListadoRoutes = () => {
             element={<Listado addOrRemoveFavorite={addOrRemoveFavorite} />}
           />
           <Route exact={true} path="/detalle" element={<Detalle />} />
+          <Route exact={true} path="/resultado" element={<Resultado />} />
           <Route
             exact={true}
             path="/favoritos"
