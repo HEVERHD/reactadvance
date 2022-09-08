@@ -74,6 +74,7 @@ export const ListadoRoutes = () => {
           />
           <Route exact={true} path="/detalle" element={<Detalle />} />
           <Route exact={true} path="/resultado" element={<Resultado />} />
+
           <Route
             exact={true}
             path="/favoritos"

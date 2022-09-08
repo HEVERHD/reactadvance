@@ -13,8 +13,8 @@ export const authSlice = createSlice({
   reducers: {
     login: (state, { payload }) => {
       // eslint-disable-next-line no-unused-expressions
-      (state.status = "authenticated"), // 'checking', 'not-authenticated', 'authenticated'
-        (state.uid = payload.uid);
+      state.status = "authenticated"; // 'checking', 'not-authenticated', 'authenticated'
+      state.uid = payload.uid;
       state.email = payload.email;
       state.displayName = payload.displayName;
       state.photoURL = payload.photoURL;
@@ -22,8 +22,8 @@ export const authSlice = createSlice({
     },
     logout: (state, { payload }) => {
       // eslint-disable-next-line no-unused-expressions
-      (state.status = "not-authenticated"), // 'checking', 'not-authenticated', 'authenticated'
-        (state.uid = null);
+      state.status = "not-authenticated"; // 'checking', 'not-authenticated', 'authenticated'
+      state.uid = null;
       state.email = null;
       state.displayName = null;
       state.photoURL = null;
