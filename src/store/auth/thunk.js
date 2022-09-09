@@ -48,6 +48,24 @@ export const startCreatingUserWithEmailPassword = ({
       password,
       displayName,
     });
+
+    if (result.ok === true)
+      return Swal.fire({
+        position: "center",
+        icon: "success",
+        title: `Cuenta creada correctamente`,
+        text: "Bienvenido disfruta la App",
+        showConfirmButton: true,
+        timer: 3000,
+      });
+    if (!result.ok) dispatch(logout(result));
+    dispatch(login(result));
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Debes estar registrado! si no tienes cuenta crea una",
+    });
+
     if (!result.ok) return dispatch(logout(result.errorMessage));
 
     dispatch(login(result));
@@ -73,8 +91,8 @@ export const startLoginWithEmailPassword = ({ email, password }) => {
     dispatch(login(result));
     Swal.fire({
       icon: "error",
-      title: "Oops...",
-      text: "Debes estar registrado! si no tienes cuenta crea una",
+      title: "Debes estar registrado...",
+      text: "de lo contrario revisa las credenciales de ingreso",
     });
   };
 };

@@ -84,7 +84,7 @@ export const Login = () => {
             lg={5}
             md={6}
             sm={12}
-            className="p-5 m-auto shadow-sm rounded-lg"
+            className="p-5 m-auto shadow-sm rounded-lg animate__animated animate__fadeIn animate__faster "
           >
             <h1 className="shawow-sm tex-success mt-5 p-3 text-center rounded">
               Inicia sesión

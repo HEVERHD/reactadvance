@@ -4,7 +4,7 @@ import {
   checkingAuthentication,
   startCreatingUserWithEmailPassword,
 } from "../store/auth";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, Navigate } from "react-router-dom";
 
 //styles
 import "../css/bootstrap.min.css";
@@ -20,6 +20,7 @@ const formData = {
 
 export const Register = () => {
   const { status } = useSelector((state) => state.auth);
+  const authenticated = useMemo(() => status === "authenticated", [status]);
 
   const navigate = useNavigate();
   //   const authenticated = useMemo(() => status === "authenticated", [status]);
@@ -75,14 +76,14 @@ export const Register = () => {
   };
   const dispatch = useDispatch();
 
-  const OnEmailAndPassword = () => {
-    dispatch(checkingAuthentication());
-  };
-
   return (
     <>
+      {authenticated && <Navigate to="/listado" />}
       <AuthLayout title="Crear cuenta">
-        <form onSubmit={onSubmit}>
+        <form
+          onSubmit={onSubmit}
+          className="animate__animated animate__fadeIn animate__faster"
+        >
           <div className="mb-3">
             <label htmlFor="exampleInputName" className="form-label">
               Nombre completo
