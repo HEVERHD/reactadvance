@@ -32,7 +32,7 @@ export const Favoritos = (props) => {
                 </h5>
                 <img
                   src={oneMovie.img}
-                  className=" img-rounded rounded float-left card-img-top img-thumbnail img-fluid"
+                  className=" img-rounded rounded float-left card-img-top img-thumbnail img-fluid animate__animated animate__flipInY"
                   alt="..."
                 />
                 <button

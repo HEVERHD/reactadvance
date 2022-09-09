@@ -5,12 +5,14 @@ import { Favoritos } from "../components/Favoritos";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { Listado } from "../components/Listado";
+import { Listado2 } from "../components/Listado2";
 import { Login } from "../components/Login";
 import { Resultado } from "../components/Resultado";
 import { useCheckAuth } from "../hooks/useCheckAuth";
 
 export const ListadoRoutes = () => {
   const [favorite, setFavorite] = useState([]);
+
   useEffect(() => {
     const favsInLocal = localStorage.getItem("favs");
     if (favsInLocal != null) {

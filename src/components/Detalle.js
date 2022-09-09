@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 
 export const Detalle = () => {
   const [movie, setMovie] = useState(null);
-  const { status } = useSelector((state) => state.auth);
   // let token = sessionStorage.getItem("token");
   let query = new URLSearchParams(window.location.search);
   let movieID = query.get("movieID");
@@ -26,15 +25,13 @@ export const Detalle = () => {
 
   return (
     <div className="container">
-      {!status && <Navigate to="/" />}
-
       {!movie && (
         <div className="spinner-border" role="status">
           <span className="visually-hidden">Loading...</span>
         </div>
       )}
       {movie && (
-        <div className=" container mt-5">
+        <div className=" container mt-5 animate__animated animate__flipInY">
           <div>
             <h2 className="text-center">
               Titulo : <b>{movie.title}</b>{" "}
@@ -45,7 +42,7 @@ export const Detalle = () => {
             <div className="col-4">
               <img
                 src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                className="img-fluid img-thumbnail"
+                className="img-fluid img-thumbnail "
                 alt="movieDetails"
               />
             </div>
