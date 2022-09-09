@@ -13,9 +13,9 @@ import { AuthLayout } from "../layout/AuthLayout";
 import { useForm } from "../hooks";
 
 const formData = {
-  email: "hever11@google.com",
-  password: "123456",
-  displayName: "Hevert Gelis",
+  email: "",
+  password: "",
+  displayName: "",
 };
 
 export const Register = () => {

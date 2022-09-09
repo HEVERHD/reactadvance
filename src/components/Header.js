@@ -9,6 +9,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { startLogout } from "../store/auth";
+import Swal from "sweetalert2";
 
 export const Header = (props) => {
   const { displayName } = useSelector((state) => state.auth);
@@ -17,7 +18,26 @@ export const Header = (props) => {
   const dispatch = useDispatch();
 
   const onLogout = () => {
-    dispatch(startLogout());
+    Swal.fire({
+      title: "Esta seguro?",
+      text: "Desea cerrar sesion!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Cerrar sesion!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(startLogout());
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: `Vuelve pronto!`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
   };
   // const onLogout = () => {
   //   navigate("/login", {

@@ -68,6 +68,7 @@ export const Login = () => {
   };
 
   const onSubmit = (event) => {
+    // eslint-disable-next-line no-lone-blocks
     event.preventDefault();
 
     // console.log({ email, password })
@@ -76,6 +77,7 @@ export const Login = () => {
   return (
     <>
       {authenticated && <Navigate to="/listado" />}
+
       <Container>
         <Row>
           <Col
