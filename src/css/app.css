@@ -1,7 +1,7 @@
 .favorite-btn {
   width: 30px;
   height: 30px;
-  background-color: rgba(163, 163, 163, 0.274);
+  background-color: rgba(226, 222, 222, 0.041);
   border-radius: 15px;
   display: flex;
   justify-content: center;
@@ -11,11 +11,14 @@
   top: 10px;
   border: none;
   font-size: 10;
+  animation: bounceOut; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 1s;
 }
 
 .active {
-  transition: 0.2s;
-  color: rgb(201, 0, 0);
-  width: 50px;
-  height: 50px;
+  transition: 0.4s;
+  color: rgb(185, 0, 25);
+  display: inline-block;
+  animation: heartBeat; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 3s;
 }

@@ -52,12 +52,12 @@ export const Listado = (props) => {
                 <button
                   data-movie-id={oneMovie.id}
                   onClick={props.addOrRemoveFavorite}
-                  className=" favorite-btn animate__animated animate__bounceIn"
+                  className={` ${classCheck} favorite-btn animate__animated animate__heartBeat`}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="currentColor"
-                    className={`bi ${classCheck}`}
+                    className={` ${classCheck}`}
                     viewBox="0 0 16 16"
                     onClick={handleClick}
                   >
