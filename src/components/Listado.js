@@ -22,7 +22,6 @@ export const Listado = (props) => {
 
   const handleClick = () => {
     setBtnState((btnState) => !btnState);
-    console.log({ classCheck });
   };
 
   let classCheck = btnState ? "active" : null;

@@ -1,8 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Navigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
-import { useSelector } from "react-redux";
 
 export const Detalle = () => {
   const [movie, setMovie] = useState(null);

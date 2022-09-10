@@ -1,10 +1,7 @@
 import React, { useMemo } from "react";
-import Swal from "sweetalert2";
-import {
-  checkingAuthentication,
-  startCreatingUserWithEmailPassword,
-} from "../store/auth";
-import { useNavigate, Link, Navigate } from "react-router-dom";
+
+import { startCreatingUserWithEmailPassword } from "../store/auth";
+import { Link, Navigate } from "react-router-dom";
 
 //styles
 import "../css/bootstrap.min.css";
@@ -22,7 +19,6 @@ export const Register = () => {
   const { status } = useSelector((state) => state.auth);
   const authenticated = useMemo(() => status === "authenticated", [status]);
 
-  const navigate = useNavigate();
   //   const authenticated = useMemo(() => status === "authenticated", [status]);
 
   const { displayName, email, password, onInputChange, formState } =

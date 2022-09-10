@@ -1,23 +1,12 @@
 import React from "react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 export const Buscador = () => {
   const navigate = useNavigate();
-
-  const { status } = useSelector((state) => state.auth);
   const submitHandler = (e) => {
     e.preventDefault();
     const keyword = e.currentTarget.keyword.value.trim();
-
-    if (!status) {
-      Swal.fire({
-        icon: "error",
-        text: "Primero debes iniciar session!",
-      });
-      return;
-    }
 
     if (keyword.length === 0) {
       Swal.fire({

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 //components
 import { Buscador } from "./Buscador";
@@ -10,11 +10,9 @@ import Navbar from "react-bootstrap/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { startLogout } from "../store/auth";
 import Swal from "sweetalert2";
-import { NavItem } from "react-bootstrap";
 
 export const Header = (props) => {
   const { displayName } = useSelector((state) => state.auth);
-  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 

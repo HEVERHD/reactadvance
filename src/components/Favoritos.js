@@ -12,21 +12,21 @@ export const Favoritos = (props) => {
         <h1 className="text-center my-3">
           {!props.favorite.length > 0
             ? `!!ups ${displayName.substring(0, 7)}"No tienes favoritos"`
-            : "Tus favoritos son:"}
+            : "Actualmente tienes:"}
           {props.favorite.length > 0 && (
             <span className="text-danger"> {props.favorite.length}</span>
           )}
           {props.favorite.length > 0 ? "" : <ButtonList />}
         </h1>
       </div>
-      <div className="row">
+      <div className="row ">
         {props.favorite.map((oneMovie, idx) => {
           return (
             <div
               className="card-group col-xs-12 col-sm-6 col-md-4 col-lg-3"
               key={idx}
             >
-              <div className="card my-3">
+              <div className="card my-3 ">
                 <h5 className="card-title text-center">
                   <b>{oneMovie.title.substring(0, 25)}...</b>
                 </h5>
@@ -38,7 +38,7 @@ export const Favoritos = (props) => {
                 <button
                   data-movie-id={oneMovie.id}
                   onClick={props.addOrRemoveFavorite}
-                  className="favorite-btn"
+                  className="favorite-btn "
                 >
                   🖤
                 </button>

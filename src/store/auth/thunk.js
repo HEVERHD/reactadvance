@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import {
   loginWithEmailPassword,
@@ -6,7 +5,6 @@ import {
   singInWithGoogle,
   logoutFirebase,
 } from "../../firebase/provider";
-import { useCheckAuth } from "../../hooks";
 
 import { checkingCredentials, logout, login } from "./";
 
@@ -40,6 +38,15 @@ export const startCreatingUserWithEmailPassword = ({
   password,
   displayName,
 }) => {
+  if (displayName === "" || email === "")
+    return Swal.fire({
+      position: "center",
+      icon: "warning",
+      title: `Error.....`,
+      text: "Completa todos los campos",
+      showConfirmButton: true,
+      timer: 3000,
+    });
   return async (dispatch) => {
     dispatch(checkingCredentials());
 
@@ -60,11 +67,6 @@ export const startCreatingUserWithEmailPassword = ({
       });
     if (!result.ok) dispatch(logout(result));
     dispatch(login(result));
-    Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text: "Debes estar registrado! si no tienes cuenta crea una",
-    });
 
     if (!result.ok) return dispatch(logout(result.errorMessage));
 
